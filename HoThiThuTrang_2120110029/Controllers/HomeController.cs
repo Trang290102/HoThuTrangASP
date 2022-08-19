@@ -67,8 +67,6 @@ namespace HoThiThuTrang_2120110029.Controllers
 
             }
             return View();
-
-
         }
 
         //login
