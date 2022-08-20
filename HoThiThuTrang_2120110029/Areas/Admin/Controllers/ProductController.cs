@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HoThiThuTrang_2120110029.Context;
+using PagedList;
 using static HoThiThuTrang_2120110029.Common;
 
 namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
@@ -16,10 +17,31 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
         QuanLyBanHangEntities3 objquanLyBanHangEntities3 = new QuanLyBanHangEntities3();
 
         // GET: Admin/Product
-        public ActionResult Index()
+        //chức năng tìm kiếm sản phẩm Admin
+        public ActionResult Index(string currentFilter, string SearchString, int? page)
         {
-            var lstProduct = objquanLyBanHangEntities3.Products.ToList();
-            return View(lstProduct);
+            var lstProduct = new List<Product>();
+            if (SearchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = currentFilter;
+            }
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                lstProduct = objquanLyBanHangEntities3.Products.Where(n => n.Name.Contains(SearchString)).ToList();
+            }
+            else
+            {
+                lstProduct = objquanLyBanHangEntities3.Products.ToList();
+            }
+            ViewBag.CurrentFilter = SearchString;
+            int pageSize = 4; 
+            int pageNumber = (page ?? 1);
+            lstProduct = lstProduct.OrderByDescending(n => n.Id).ToList();
+            return View(lstProduct.ToPagedList(pageNumber, pageSize));
         }
         //private dynamic ToSelectList(DataTable dtCategory, string v1, string v2)
         //{
@@ -50,7 +72,7 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
                         string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
                         fileName = fileName + extension;
                         objProduct.Avatar = fileName;
-                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
                     }
                     objProduct.CreatedOnUtc = DateTime.Now;
                     objquanLyBanHangEntities3.Products.Add(objProduct);
@@ -65,11 +87,6 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
             }
             return View(objProduct);
         }
-
-
-
-
-
 
         [HttpGet]
         public ActionResult Details(int id)//xem chi tiet san pham(admin)
@@ -113,7 +130,7 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
                 fileName = fileName + extension;
 
                 objProduct.Avatar = fileName;
-                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
             }
             objquanLyBanHangEntities3.Entry(objProduct).State = EntityState.Modified;
             objquanLyBanHangEntities3.SaveChanges();
