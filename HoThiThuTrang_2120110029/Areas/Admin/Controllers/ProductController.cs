@@ -74,6 +74,7 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
                         objProduct.Avatar = fileName;
                         objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
                     }
+
                     objProduct.CreatedOnUtc = DateTime.Now;
                     objquanLyBanHangEntities3.Products.Add(objProduct);
                     objquanLyBanHangEntities3.SaveChanges();
@@ -112,25 +113,38 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+
         [HttpGet]
-        public ActionResult Edit(int id)//edit san pham(admin)
+        public ActionResult Edit(int id)
         {
+            this.LoadData();
             var objProduct = objquanLyBanHangEntities3.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
-        public ActionResult Edit(Product objProduct)//edit san pham(admin)
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Product objProduct, FormCollection form)
         {
+            //this.LoadData();
             if (objProduct.ImageUpload != null)
             {
                 string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
+                //tenhinh
                 string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-
-                //fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
+                //mo rong
                 fileName = fileName + extension;
-
+                //tenhinh.jpg
                 objProduct.Avatar = fileName;
                 objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
+
+            }
+            else
+            {
+                objProduct.Avatar = form["oldimage"];
+                objquanLyBanHangEntities3.Entry(objProduct).State = EntityState.Modified;
+                objquanLyBanHangEntities3.SaveChanges();
+                return RedirectToAction("Index");
             }
             objquanLyBanHangEntities3.Entry(objProduct).State = EntityState.Modified;
             objquanLyBanHangEntities3.SaveChanges();
@@ -167,9 +181,6 @@ namespace HoThiThuTrang_2120110029.Areas.Admin.Controllers
             DataTable dtProductType = converter.ToDataTable(lstProductType);
             //convert sang select list dang value, text
             ViewBag.ProductType = objCommon.ToSelectList(dtProductType, "Id", "Name");
-
-
-
         }
     }
 }

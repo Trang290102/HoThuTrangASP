@@ -52,5 +52,16 @@ namespace HoThiThuTrang_2120110029
             public int Id { get; set; }
             public string Name { get; set; }
         }
+        public class CategoryType
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+        public class BrandType
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
     }
 }

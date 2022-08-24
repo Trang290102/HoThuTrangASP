@@ -9,6 +9,5 @@ namespace HoThiThuTrang_2120110029.Models
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
-
     }
 }

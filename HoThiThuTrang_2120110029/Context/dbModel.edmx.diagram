@@ -7,9 +7,10 @@
       <Diagram DiagramId="f28bf7d6790d40fda14c1130cd60aef6" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyBanHangModel.Brand" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Order" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.User" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Order" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.OrderDetail" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

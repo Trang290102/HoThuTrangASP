@@ -11,7 +11,7 @@ namespace HoThiThuTrang_2120110029.Models
     public class ProductMasterData
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm!s")]
+        [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm!")]
         [Display(Name = "Tên sản phẩm")]
         public string Name { get; set; }
         [Display(Name = "Hình ảnh sản phẩm")]
@@ -32,6 +32,7 @@ namespace HoThiThuTrang_2120110029.Models
         [Display(Name = "Thương hiệu")]
         public Nullable<int> BrandId { get; set; }
         public Nullable<bool> Deleted { get; set; }
+        //[Display(Name = "Hiển thị trong trang chủ")]
         public Nullable<bool> ShowOnHomePage { get; set; }
         public Nullable<int> DisplayOrder { get; set; }
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }

@@ -33,9 +33,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().ShortDes)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().FullDescription)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
         </th>
@@ -51,12 +51,12 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().BrandId)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().ShowOnHomePage)
-        </th>
-        <th>
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
-        </th>
+        </th>*@
         <th>
         </th>
 
@@ -77,9 +77,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ShortDes)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullDescription)
-            </td>
+            <!--<td>-->
+                @*@Html.DisplayFor(modelItem => item.FullDescription)*@
+            <!--</td>-->
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
@@ -95,12 +95,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BrandId)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.ShowOnHomePage)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.DisplayOrder)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |

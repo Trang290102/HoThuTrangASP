@@ -21,4 +21,18 @@ namespace HoThiThuTrang_2120110029.Context
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
+
+    [MetadataType(typeof(CategoryMasterData))]
+    public partial class Category
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
+    [MetadataType(typeof(BrandMasterData))]
+    public partial class Brand
+    {
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+    }
+
 }
