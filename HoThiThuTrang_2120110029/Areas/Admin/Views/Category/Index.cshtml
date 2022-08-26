@@ -9,7 +9,7 @@
 <p>
     Tìm tên danh mục : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
     <input type="submit" value="Tìm kiếm" />
-</p>}
+</p>
 
 <p>
     @Html.ActionLink("Tạo danh mục mới", "Create")
@@ -25,9 +25,9 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Slug)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().ShowOnHomePage)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
         </th>
@@ -48,9 +48,9 @@
     <td>
         @Html.DisplayFor(modelItem => item.Slug)
     </td>
-    <td>
+    @*<td>
         @Html.DisplayFor(modelItem => item.ShowOnHomePage)
-    </td>
+    </td>*@
     <td>
         @Html.DisplayFor(modelItem => item.DisplayOrder)
     </td>
