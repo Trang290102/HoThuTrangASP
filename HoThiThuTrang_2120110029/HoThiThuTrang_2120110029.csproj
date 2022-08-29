@@ -175,7 +175,6 @@
     <Compile Include="Context\User.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2155,6 +2154,7 @@
     <Content Include="Content\images\items\7.jpg" />
     <Content Include="Content\images\items\8.jpg" />
     <Content Include="Content\images\items\9.jpg" />
+    <Content Include="Content\images\items\mtb3.png" />
     <Content Include="Content\images\logo-white.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo.svg" />
@@ -2705,7 +2705,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
-    <Content Include="Views\Brand\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

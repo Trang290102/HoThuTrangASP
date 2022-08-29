@@ -36,10 +36,9 @@
 <section class="py-3 bg-light">
     <div class="container">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Category name</a></li>
-            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Items</li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Chi tiết sản phẩm</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
         </ol>
     </div>
 </section>
@@ -196,27 +195,3 @@
     </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="padding-y-lg bg-light border-top">
-    <div class="container">
-
-        <p class="pb-2 text-center">Cung cấp các xu hướng sản phẩm mới nhất và tin tức ngành đến hộp thư đến của bạn</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-4 col-sm-6">
-                <form class="form-row">
-                    <div class="col-8">
-                        <input class="form-control" placeholder="Nhập Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Đặt mua </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text">Chúng tôi sẽ không bao giờ chia sẻ địa chỉ email của bạn với bên thứ ba.</small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

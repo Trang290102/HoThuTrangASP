@@ -12,16 +12,18 @@
                 <div class="row">
                     <aside class="col-lg col-md-3 flex-lg-grow-0">
                         <nav class="nav-home-aside">
-                            <a href="@Url.Action("Index", "Category")" class="title-category">TẤT CẢ DANH MỤC 
-                            <i class="d-md-none icon fa fa-chevron-down"></i></a>
+                            <a href="@Url.Action("Index", "Category")" class="title-category">
+                                TẤT CẢ DANH MỤC
+                                <i class="d-md-none icon fa fa-chevron-down"></i>
+                            </a>
                             <ul class="menu-category">
                                 @foreach (var item in Model.ListCategory)
                                 {
-                                <li>
-                                    @*<a href="#">@item.Name</a>*@
-                                    @Html.ActionLink( item.Name, "ProductCategory", "Category", new { @Id =item.Id }, null)
+                                    <li>
+                                        @*<a href="#">@item.Name</a>*@
+                                        @Html.ActionLink(item.Name, "ProductCategory", "Category", new { @Id = item.Id }, null)
 
-                                </li>
+                                    </li>
                                 }
                             </ul>
                         </nav>
@@ -62,15 +64,15 @@
                     <div class="col-md d-none d-lg-block flex-grow-1">
                         <aside class="special-home-right">
                             <h6 class="bg-blue text-center text-white mb-0 p-2">Danh mục phổ biến</h6>
-                            @foreach (var item in Model.ListCategory.Where(n=>n.ShowOnHomePage == true).Take(3))
+                            @foreach (var item in Model.ListCategory.Where(n => n.ShowOnHomePage == true).Take(3))
                             {
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">@item.Name</h6>
-                                    <a href="@Url.Action("ProductCategory", "Category", new { Id =item.Id })" class="btn btn-secondary btn-sm"> Xem ngay </a>
+                                <div class="card-banner border-bottom">
+                                    <div class="py-3" style="width:80%">
+                                        <h6 class="card-title">@item.Name</h6>
+                                        <a href="@Url.Action("ProductCategory", "Category", new { Id =item.Id })" class="btn btn-secondary btn-sm"> Xem ngay </a>
+                                    </div>
+                                    <img src="~/Content/category/@item.Avatar" height="80" class="img-bg">
                                 </div>
-                                <img src="~/Content/category/@item.Avatar" height="80" class="img-bg">
-                            </div>
                             }
 
 
@@ -98,20 +100,20 @@
                 </div>
             </div> <!-- col.// -->
             <div class="row no-gutters items-wrap">
-                @foreach (var item in Model.ListProduct.Where(n=>n.TypeId ==1).Take(5))
+                @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 1).Take(5))
                 {
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="img-wrap">
-                            <img src="~/Content/images/items/@item.Avatar">
-                        </a>
-                        <div class="text-wrap p-3">
-                            @*<a href="#" class="title">@item.Name</a>*@
-                            @Html.ActionLink( item.Name, "Detail", "Product", new { Id =item.Id }, null)
-                            <span class="badge badge-danger"> -20% </span>
-                        </div>
-                    </figure>
-                </div>  <!-- col.// -->
+                    <div class="col-md col-6">
+                        <figure class="card-product-grid card-sm">
+                            <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="img-wrap">
+                                <img src="~/Content/images/items/@item.Avatar">
+                            </a>
+                            <div class="text-wrap p-3">
+                                @*<a href="#" class="title">@item.Name</a>*@
+                                @Html.ActionLink(item.Name, "Detail", "Product", new { Id = item.Id }, null)
+                                <span class="badge badge-danger"> -20% </span>
+                            </div>
+                        </figure>
+                    </div> <!-- col.// -->
 
                 }
             </div>
@@ -138,17 +140,17 @@
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        @foreach (var item in Model.ListProduct.Where(n=>n.BrandId ==1).Take(8))
+                        @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 1).Take(8))
                         {
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@item.ShortDes</h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i>@item.Name</p>
-                                </div>
-                            </a>
-                        </li>
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">@item.ShortDes</h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i>@item.Name</p>
+                                    </div>
+                                </a>
+                            </li>
                         }
                     </ul>
                 </div> <!-- col.// -->
@@ -169,24 +171,23 @@
                     <div class="home-category-banner bg-light-orange">
                         <h5 class="title">Phân phối chính hãng</h5>
                         <p>Tính đến nay thì hãng điện thoại Samsung đến nay vẫn đang chiếm lĩnh thị trường điện thoại ở Việt Nam</p>
-                        <a href="" class="btn btn-outline-primary rounded-pill">Source now</a>
                         <img src="~/Content/images/items/samsung.jpg" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        @foreach(var item in Model.ListProduct.Where(n=>n.BrandId ==2).Take(8))
+                        @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 2).Take(8))
                         {
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@item.ShortDes</h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i>@item.Name</p>
-                                </div>
-                            </a>
-                        </li>
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">@item.ShortDes</h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i>@item.Name</p>
+                                    </div>
+                                </a>
+                            </li>
                         }
                     </ul>
                 </div> <!-- col.// -->
@@ -194,68 +195,12 @@
         </div> <!-- card.// -->
     </section>
     <!-- =============== SECTION 2 END =============== -->
-    <!-- =============== SECTION REQUEST =============== -->
 
-    <section class="padding-bottom">
+    <article class="my-4">
+        <img src="~/Content/images/banners/section_hot_banner.jpg" class="w-100">
+    </article>
 
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Yêu cầu báo giá</h4>
-        </header>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card-banner banner-quote overlay-gradient" style="background-image: url('~/Content/images/banners/banner9.jpg');">
-                    <div class="card-img-overlay white">
-                        <h3 class="card-title">Một cách dễ dàng để gửi yêu cầu đến nhà cung cấp. Hãy đưa ra ý kiến của bạn!</h3>
-                        <p class="card-text" style="max-width: 400px">
-                            Điều rất quan trọng là phải có một khách,
-                            để theo dõi sự phát triển của nhà phát triển, nhưng đây là cách mọi thứ diễn ra cùng một lúc.
-                        </p>
-                    </div>
-                </div>
-            </div> <!-- col // -->
-            <div class="col-md-4">
-
-                <div class="card card-body">
-                    <h4 class="title py-3">Một yêu cầu, nhiều góp ý</h4>
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" name="" placeholder="Bạn đang tìm kiếm cái gì?" type="text">
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input class="form-control" placeholder="Số lượng" name="" type="text">
-
-                                <select class="custom-select form-control">
-                                    <option>Pieces</option>
-                                    <option>Litres</option>
-                                    <option>Tons</option>
-                                    <option>Gramms</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group text-muted">
-                            <p>Chọn loại mẫu:</p>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" value="option1">
-                                <span class="form-check-label">Yêu cầu giá</span>
-                            </label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" value="option2">
-                                <dspaniv class="form-check-label">Thêm ví dụ</dspaniv>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-warning">Gửi báo cáo</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div> <!-- col // -->
-        </div> <!-- row // -->
-    </section>
-
-    <!-- =============== SECTION REQUEST .//END =============== -->
     <!-- =============== SECTION ITEMS =============== -->
     <section class="padding-bottom-sm">
 
@@ -264,21 +209,21 @@
         </header>
 
         <div class="row row-sm">
-            @foreach(var item in Model.ListProduct.Where(n=>n.TypeId ==2).Take(12))
-        {
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
-                    <figcaption class="info-wrap">
-                        @*<a href="#" class="title">@item.Name</a>*@
-                        @Html.ActionLink( item.Name, "Detail", "Product", new { Id =item.Id }, null)
+            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2).Take(12))
+            {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div class="card card-sm card-product-grid">
+                        <a href="@Url.Action("Detail", "Product", new { Id =item.Id })" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
+                        <figcaption class="info-wrap">
+                            @*<a href="#" class="title">@item.Name</a>*@
+                            @Html.ActionLink(item.Name, "Detail", "Product", new { Id = item.Id }, null)
 
-                        <div class="price mt-1">@item.Price</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div>  <!-- col.// -->
+                            <div class="price mt-1">@item.Price</div> <!-- price-wrap.// -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
 
-        }
+            }
         </div> <!-- row.// -->
     </section>
     <!-- =============== SECTION ITEMS .//END =============== -->
@@ -296,7 +241,7 @@
                     <div class="card-body">
                         <h6 class="title">
                             Đảm bảo thương mại
-              
+
                         </h6>
                         <p class="small text-uppercase text-muted">BẢO VỆ ĐƠN HÀNG</p>
                     </div>
@@ -359,27 +304,3 @@
     </article>
 </div>
 <!-- container end.// -->
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="section-subscribe padding-y-lg">
-    <div class="container">
-
-        <p class="pb-2 text-center text-white">Delivering the latest product trends and industry news straight to your inbox</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-5 col-md-6">
-                <form class="form-row">
-                    <div class="col-md-8 col-7">
-                        <input class="form-control border-0" placeholder="Your Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-md-4 col-5">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text text-white-50">We’ll never share your email address with a third-party. </small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->
